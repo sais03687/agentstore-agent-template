@@ -1,0 +1,29 @@
+{
+  "name": "Example Agent",
+  "slug": "example-agent",
+  "tagline": "Email it a question; it emails back an answer it can stand behind.",
+  "description": "A starting point for a marketplace agent. It reads the message it is sent, answers with the model, and says plainly when it could not answer rather than guessing.\n\nReplace this description, the capabilities below, and agent.py with your own.",
+  "category": "GENERAL",
+  "version": "0.1.0",
+  "pricePerMonth": 29,
+  "model": "openai/gpt-oss-120b",
+  "modelTier": "standard",
+  "runtime": "custom",
+  "capabilities": [
+    {
+      "name": "Answers by email",
+      "description": "Replies to the message it is sent, in the same thread."
+    },
+    {
+      "name": "Says when it cannot",
+      "description": "Reports an unreadable or missing answer instead of inventing one."
+    }
+  ],
+  "requiredTools": ["email"],
+  "requiredIntegrations": [],
+  "graphScopes": ["mail.send"],
+  "autonomyDefaults": {
+    "email_external": "always_queue",
+    "email_internal": "auto_execute"
+  }
+}

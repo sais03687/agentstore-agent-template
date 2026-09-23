@@ -1,0 +1,9 @@
+[
+  {
+    "id": "team_names",
+    "order": 1,
+    "question": "Who will be emailing you? List the names as they appear in your messages. I use this to tell colleagues apart.",
+    "memoryKey": "team.names",
+    "required": false
+  }
+]
