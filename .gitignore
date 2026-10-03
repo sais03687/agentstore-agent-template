@@ -1,0 +1,7 @@
+# Python build artefacts — never part of an agent package.
+__pycache__/
+*.py[cod]
+
+# Local environment
+.env
+.env.*
