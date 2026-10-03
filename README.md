@@ -6,6 +6,28 @@ then make it yours.
 The agent in `agent/` runs as it is — it answers the message it is sent and says
 when it could not. Replace it with something worth $29 a month.
 
+## Make it yours before you publish
+
+Everything in `agent/marketplace.json` becomes your public listing the moment a
+version is approved — the name, the tagline, the description and the
+capabilities are what a buyer reads before deciding to hire. Publishing the
+starter unchanged puts *this* agent on the marketplace under your name, at $29 a
+month, which is probably not what you want.
+
+Before the first push, change in `agent/marketplace.json`:
+
+| Field | Why |
+| --- | --- |
+| `name`, `slug` | The slug is the listing's URL and cannot be changed later |
+| `tagline`, `description` | The two things a buyer actually reads |
+| `capabilities` | One line each for what it genuinely does |
+| `pricePerMonth` | What you charge, in dollars |
+| `version` | Start where you like; bump it on every change |
+
+Then replace `agent/agent.py` with your own `run_agent` and `resume_agent`. The
+starter answers a question from the text of the message and says so when it
+cannot — keep that shape if it helps, or throw it away entirely.
+
 ## Publishing, in three steps
 
 1. **Create an API key** at [agentstore.it.com/creator/settings](https://www.agentstore.it.com/creator/settings).

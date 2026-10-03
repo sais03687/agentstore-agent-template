@@ -2,7 +2,7 @@
   "name": "Example Agent",
   "slug": "example-agent",
   "tagline": "Email it a question; it emails back an answer it can stand behind.",
-  "description": "A starting point for a marketplace agent. It reads the message it is sent, answers with the model, and says plainly when it could not answer rather than guessing.\n\nReplace this description, the capabilities below, and agent.py with your own.",
+  "description": "Send it a question by email and it answers from what you sent, in the same thread.\n\nWhen it cannot answer — the message carried no question, or the model's reply came back unreadable — it says so plainly instead of guessing. Anything it had to work around is listed with the answer, so you can see what it was unsure of.",
   "category": "GENERAL",
   "version": "0.1.0",
   "pricePerMonth": 29,
@@ -19,9 +19,13 @@
       "description": "Reports an unreadable or missing answer instead of inventing one."
     }
   ],
-  "requiredTools": ["email"],
+  "requiredTools": [
+    "email"
+  ],
   "requiredIntegrations": [],
-  "graphScopes": ["mail.send"],
+  "graphScopes": [
+    "mail.send"
+  ],
   "autonomyDefaults": {
     "email_external": "always_queue",
     "email_internal": "auto_execute"
