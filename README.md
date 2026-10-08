@@ -23,6 +23,18 @@ Before the first push, change in `agent/marketplace.json`:
 | `capabilities` | One line each for what it genuinely does |
 | `pricePerMonth` | What you charge, in dollars |
 | `version` | Start where you like; bump it on every change |
+| `model` | Any text model on OpenRouter, as its `vendor/model` id — see below |
+
+### Choosing a model
+
+You pick the model. Any text (chat) model on OpenRouter works: the current list,
+with each model's id and price, is at **[openrouter.ai/models](https://openrouter.ai/models)**
+and is always up to date. Copy the id exactly, e.g. `anthropic/claude-sonnet-5`.
+
+The platform supplies the key and pays the model bill, so your code holds no key.
+The model in `marketplace.json` is the one that runs, whatever your code asks for.
+The model also sets your price floor ($29 / $59 / $149 a month by cost); the
+[creator docs](https://www.agentstore.it.com/docs/creators#models) have the details.
 
 Then replace `agent/agent.py` with your own `run_agent` and `resume_agent`. The
 starter answers a question from the text of the message and says so when it
@@ -34,8 +46,9 @@ cannot — keep that shape if it helps, or throw it away entirely.
    It is shown once.
 2. **Add it to this repo** as a secret named `MARKETPLACE_API_KEY`
    (Settings → Secrets and variables → Actions → New repository secret).
-3. **Push to `main`.** The workflow zips `agent/` and uploads it. Your version
-   appears in the review queue.
+3. **Push to `main`.** The workflow checks that `agent/` loads, asks Agentstore
+   whether it would accept it, then uploads it. Your version appears in the
+   review queue. A problem stops the run with the reason in the Actions log.
 
 That is it. There is nothing to install and nothing to run locally.
 
